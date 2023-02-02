@@ -21,14 +21,14 @@
 <script type='text/javascript'>
 	var initESW = function(gslbBaseURL) {
 		
-		   //var show = false;
+	var show = false;
         
         embedded_svc.addEventHandler("afterMaximize", function(data) {
             console.log("afterMaximize event was fired.");
 		
             
-            //if (!show) {
-                //show = true;
+            if (!show) {
+                show = true;
                 var li2 = document.createElement("div");
                 li2.style.color = "white";
                 li2.style.backgroundColor  = #AD1100;
@@ -38,7 +38,7 @@
                 var sidebar = document.querySelector("div.formContent.embeddedServiceSidebarForm");
                 
                 sidebar.insertBefore(li2, sidebar.childNodes[0]);
-           // }
+            }
             
         });    
 		
