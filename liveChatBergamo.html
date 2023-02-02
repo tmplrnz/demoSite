@@ -25,6 +25,7 @@
         
         embedded_svc.addEventHandler("afterMaximize", function(data) {
             console.log("afterMaximize event was fired.");
+		console.log(show);
             
             if (!show) {
                 show = true;
