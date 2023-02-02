@@ -21,14 +21,16 @@
 <script type='text/javascript'>
 	var initESW = function(gslbBaseURL) {
 		
-	var show = false;
+	//var show = false;
+	var counter = 0;
         
         embedded_svc.addEventHandler("afterMaximize", function(data) {
             console.log("afterMaximize event was fired.");
 		
             
-            if (!show) {
-                show = true;
+            if (counter < 2) {
+                //show = true;
+		counter++;
                 var li2 = document.createElement("div");
                 li2.style.color = "white";
                 li2.style.backgroundColor  = "rgb(173, 17, 0)";
