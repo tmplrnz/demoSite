@@ -28,19 +28,20 @@
             console.log("afterMaximize event was fired.");
 		
             
-            if (counter < 2) {
-                //show = true;
-		counter++;
+           
                 var li2 = document.createElement("div");
                 li2.style.color = "white";
                 li2.style.backgroundColor  = "rgb(173, 17, 0)";
                 li2.style.padding = "5px";
+		
+		if (counter < 2) {
+		counter++;
                 li2.appendChild(document.createTextNode("Il contact center dalle 09:00 alle 13:00, dal lunedì al venerdì, è raggiungibile anche al numero verde 800.29.21.10"));
                     
                 var sidebar = document.querySelector("div.formContent.embeddedServiceSidebarForm");
                 
                 sidebar.insertBefore(li2, sidebar.childNodes[0]);
-            }
+            	}
             
         });    
 		
