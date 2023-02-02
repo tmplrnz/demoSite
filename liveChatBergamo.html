@@ -20,12 +20,33 @@
 <script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
 <script type='text/javascript'>
 	var initESW = function(gslbBaseURL) {
+		
+		   var show = false;
+        
+        embedded_svc.addEventHandler("afterMaximize", function(data) {
+            console.log("afterMaximize event was fired.");
+            
+            if (!show) {
+                show = true;
+                var li2 = document.createElement("div");
+                li2.style.color = "white";
+                li2.style.backgroundColor  = "blue";
+                li2.style.padding = "5px";
+                li2.appendChild(document.createTextNode("Il contact center dalle 09:00 alle 13:00, dal lunedì al venerdì, è raggiungibile anche al numero verde 800.29.21.10"));
+                    
+                var sidebar = document.querySelector("div.formContent.embeddedServiceSidebarForm");
+                
+                sidebar.insertBefore(li2, sidebar.childNodes[0]);
+            }
+            
+        });    
+		
 		embedded_svc.settings.displayHelpButton = true; //Or false
 		embedded_svc.settings.language = ''; //For example, enter 'en' or 'en-US'
 
 		//embedded_svc.settings.defaultMinimizedText = '...'; //(Defaults to Chat with an Expert)
 		//embedded_svc.settings.disabledMinimizedText = '...'; //(Defaults to Agent Offline)
-		embedded_svc.settings.extraPrechatFormDetails = ['Il contact center dalle 09:00 alle 13:00, dal lunedì al venerdì, è raggiungibile anche al numero verde 800.29.21.10'];
+		//embedded_svc.settings.extraPrechatFormDetails = ['Il contact center dalle 09:00 alle 13:00, dal lunedì al venerdì, è raggiungibile anche al numero verde 800.29.21.10'];
 
 		//embedded_svc.settings.loadingText = 'Il contact center dalle 09:00 alle 13:00, dal lunedì al venerdì, è raggiungibile anche al numero verde 800.29.21.10'; //(Defaults to Loading)
 		//embedded_svc.settings.storageDomain = 'yourdomain.com'; //(Sets the domain for your deployment so that visitors can navigate subdomains during a chat session)
