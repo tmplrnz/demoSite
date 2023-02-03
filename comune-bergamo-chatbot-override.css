@@ -1,0 +1,1793 @@
+/* Button CSS da Framework SLDS */
+
+.embeddedServiceSidebar dl,
+.embeddedServiceSidebar fieldset,
+.embeddedServiceSidebar h1,
+.embeddedServiceSidebar h2,
+.embeddedServiceSidebar h3,
+.embeddedServiceSidebar h4,
+.embeddedServiceSidebar h5,
+.embeddedServiceSidebar ol,
+.embeddedServiceSidebar p,
+.embeddedServiceSidebar ul {
+    margin: 0;
+    padding: 0;
+}
+
+.embeddedServiceSidebar p,
+.embeddedServiceSidebar span {
+    font-size: 0.875rem;
+}
+
+a,
+button {
+    cursor: pointer;
+}
+
+.slds-button--icon,
+.slds-button--icon-border,
+.slds-button--icon-border-filled,
+.slds-button--icon-border-inverse,
+.slds-button--icon-container,
+.slds-button--icon-error,
+.slds-button--icon-inverse,
+.slds-button--icon-more,
+.slds-button_icon,
+.slds-button_icon-border,
+.slds-button_icon-border-filled,
+.slds-button_icon-border-inverse,
+.slds-button_icon-container,
+.slds-button_icon-error,
+.slds-button_icon-inverse,
+.slds-button_icon-more {
+    line-height: 1;
+    vertical-align: middle;
+    -ms-flex-pack: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    color: #706e6b;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+}
+
+.slds-button {
+    position: relative;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 0;
+    background: transparent;
+    background-clip: border-box;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+    line-height: 1.875rem;
+    text-decoration: none;
+    color: #0070d2;
+    -webkit-appearance: none;
+    white-space: normal;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.slds-button--brand,
+.slds-button_brand {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    border: 1px solid #dddbda;
+    -webkit-transition: border .15s linear;
+    -o-transition: border .15s linear;
+    transition: border .15s linear;
+    background-color: #0070d2;
+    border-color: #0070d2;
+    color: #fff;
+}
+
+.slds-button--brand:focus,
+.slds-button--brand:hover,
+.slds-button_brand:focus,
+.slds-button_brand:hover {
+    background-color: #005fb2;
+    border-color: #005fb2;
+    color: #fff;
+}
+
+.embeddedServiceSidebarButton.dialog-button-0 {
+    background-color: #0070d2 !important;
+    border-color: #0070d2 !important;
+}
+
+.embeddedServiceSidebarButton.endChatButton {
+    background-color: #0070d2 !important;
+    border-color: #0070d2 !important;
+}
+
+/* Modal CSS da Framework SLDS */
+
+.slds-modal {
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition: opacity .1s linear, -webkit-transform .1s linear;
+    transition: opacity .1s linear, -webkit-transform .1s linear;
+    -o-transition: transform .1s linear, opacity .1s linear;
+    transition: transform .1s linear, opacity .1s linear;
+    transition: transform .1s linear, opacity .1s linear, -webkit-transform .1s linear;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 9001;
+}
+
+.slds-fade-in-open {
+    opacity: 1;
+    visibility: visible;
+    -webkit-transition: opacity .1s linear;
+    -o-transition: opacity .1s linear;
+    transition: opacity .1s linear;
+}
+
+.slds-modal__container {
+    position: relative;
+    -webkit-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    transform: translate(0, 0);
+    -webkit-transition: opacity .1s linear, -webkit-transform .1s linear;
+    transition: opacity .1s linear, -webkit-transform .1s linear;
+    -o-transition: transform .1s linear, opacity .1s linear;
+    transition: transform .1s linear, opacity .1s linear;
+    transition: transform .1s linear, opacity .1s linear, -webkit-transform .1s linear;
+    display: -ms-flexbox;
+    display: -webkit-box;
+    display: flex;
+    -ms-flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    -ms-flex-pack: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    margin: 0 2rem;
+    height: 100%;
+    padding: 3rem 0;
+    border-radius: .25rem;
+}
+
+@media (min-width: 48em) {
+    .slds-modal__container {
+        margin: 0 auto;
+        width: 50%;
+        max-width: 40rem;
+        min-width: 20rem;
+    }
+
+}
+
+.slds-modal__content,
+.slds-modal__header {
+    background: #fff;
+}
+
+.slds-modal__footer,
+.slds-modal__header {
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+}
+
+.slds-modal__header {
+    position: relative;
+    border-top-right-radius: .25rem;
+    border-top-left-radius: .25rem;
+    border-bottom: 2px solid #dddbda;
+    padding: 1rem;
+    text-align: center;
+}
+
+/* COMMENTATI PER RISOLVERE PROBLEMA ICONE SUMMER '20 */
+/*.slds-modal__close {
+    width: 2rem;
+    height: 2rem;
+    position: absolute;
+    top: -2.5rem;
+    right: -.5rem;
+}
+
+.slds-icon__container,
+.slds-icon_container {
+    display: inline-block;
+    border-radius: .25rem;
+    line-height: 1;
+}
+
+.slds-icon {
+    width: 2rem;
+    height: 2rem;
+    fill: #fff;
+}
+
+.slds-icon--small,
+.slds-icon_small {
+    width: 1.5rem;
+    height: 1.5rem;
+    line-height: 1;
+}*/
+
+/* fine commentati per problema icone summer '20*/
+
+.slds-assistive-text {
+    position: absolute !important;
+    margin: -1px !important;
+    border: 0 !important;
+    padding: 0 !important;
+    width: 1px !important;
+    height: 1px !important;
+    overflow: hidden !important;
+    clip: rect(0 0 0 0) !important;
+    text-transform: none !important;
+    white-space: nowrap !important;
+}
+
+.slds-modal__content {
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+.slds-hyphenate {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+}
+
+.slds-text-heading--medium,
+.slds-text-heading_medium {
+    font-weight: 300;
+    font-size: 1.25rem;
+    line-height: 1.25;
+}
+
+.slds-rich-text-editor__output,
+.slds-rich-text-editor__textarea {
+    line-height: 1.5;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    -webkit-hyphens: manual;
+    -ms-hyphens: manual;
+    hyphens: manual;
+}
+
+/* Custom CSS per Lotteria */
+
+.embeddedServiceLiveAgentStateChatMessage li {
+    display: list-item !important;
+    list-style-type: circle !important;
+    list-style-position: inside !important;
+}
+
+.forceCommunityEmbeddedServiceHelpButton,
+.embeddedServiceHelpButton .helpButton {
+    height: 42px !important;
+    bottom: 0 !important;
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -webkit-box-align: center !important;
+    -ms-flex-align: center !important;
+    align-items: center !important;
+}
+
+.embeddedServiceHelpButton .helpButton {
+    width: auto !important;
+}
+
+.embeddedServiceHelpButton .helpButton .uiButton {
+    font-size: 0.875rem !important;
+}
+
+.embeddedServiceSidebar.layout-docked .dockableContainer,
+.forceCommunityEmbeddedServiceHelpButton .flatButton,
+.embeddedServiceSidebarMinimizedDefaultUI,
+.embeddedServiceHelpButton .helpButton .uiButton {
+    width: 25vw !important;
+    max-width: 25vw !important;
+    border-radius: 0 !important;
+}
+
+.embeddedServiceSidebar.layout-docked .dockableContainer {
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+}
+
+.embeddedServiceSidebar .sidebarBody {
+    /*border-left: 1px solid #ddd !important;
+    border-right: 1px solid #ddd !important;*/
+    background-color: white !important;
+}
+
+.embeddedServiceSidebar .sidebarBody:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 1px;
+    background: #888888;
+    z-index: 99;
+}
+
+.embeddedServiceSidebar .sidebarBody:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 1px;
+    background: #888888;
+    z-index: 99;
+}
+
+.embeddedServiceSidebarMinimizedDefaultUI,
+.embeddedServiceHelpButton .helpButton .uiButton {
+    border: none !important;
+    height: 42px !important;
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    padding: 0 12px !important;
+}
+
+.embeddedServiceSidebar.sidebarMaximized.layout-docked .minimizedContainer,
+.embeddedServiceSidebar.sidebarMinimized.layout-docked .dockableContainer {
+    display: none !important;
+}
+
+
+
+.forceCommunityEmbeddedServiceHelpButton .flatButton {
+    font-size: 0.875rem !important;
+    text-transform: initial !important;
+    line-height: 1.2 !important;
+    -webkit-box-align: center !important;
+    -ms-flex-align: center !important;
+    align-items: center !important;
+    padding: 0 !important;
+    height: 42px !important;
+    background-color: #06c !important;
+    align-items: center !important;
+}
+
+.forceCommunityEmbeddedServiceHelpButton .flatButton:hover {
+    background-color: #0059b3 !important;
+}
+
+.embeddedServiceSidebarMinimizedDefaultUI,
+.embeddedServiceSidebarHeader,
+.embeddedServiceSidebarExtendedHeader,
+.embeddedServiceHelpButton .helpButton .uiButton {
+    background-color: #06c !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+}
+
+.embeddedServiceHelpButton .helpButton .uiButton {
+    font-size: 0.875rem;
+}
+
+.forceCommunityEmbeddedServiceHelpButton .flatButton:after {
+    content: '+';
+    padding-right: 18px;
+    font-size: 1.25rem;
+    margin-left: auto;
+}
+
+.forceCommunityEmbeddedServiceHelpButton .flatButton .helpButtonLabel {
+    -webkit-box-flex: 0 !important;
+    -ms-flex-positive: 0 !important;
+    flex-grow: 0 !important;
+    -ms-flex-item-align: center !important;
+    -ms-grid-row-align: center !important;
+    align-self: center !important;
+    font-weight: 400 !important;
+}
+
+.embeddedServiceHelpButton .uiButton .helpButtonLabel {
+    -webkit-box-pack: start !important;
+    -ms-flex-pack: start !important;
+    justify-content: flex-start !important;
+}
+
+
+
+@media (max-width: 979px) and (min-width: 768px) {
+
+    .embeddedServiceSidebar.layout-docked .dockableContainer,
+    .forceCommunityEmbeddedServiceHelpButton .flatButton,
+    .embeddedServiceSidebarMinimizedDefaultUI,
+    .embeddedServiceHelpButton .helpButton .uiButton {
+        width: 45vw !important;
+        max-width: 45vw !important;
+    }
+}
+
+@media (max-width: 767px) {
+
+    .embeddedServiceSidebar.layout-docked .dockableContainer,
+    .forceCommunityEmbeddedServiceHelpButton .flatButton,
+    .embeddedServiceSidebarMinimizedDefaultUI,
+    .embeddedServiceHelpButton .helpButton .uiButton {
+        width: 100vw !important;
+        max-width: 100vw !important;
+        left: 0 !important;
+        right: 0 !important;
+    }
+
+    /*.embeddedServiceHelpButton .helpButton {
+        left: 0 !important;
+        right: 0 !important;
+    }*/
+
+    .embeddedServiceLiveAgentStateChatInputFooter .chasitorText {
+        font-size: 1rem !important;
+    }
+}
+
+.embeddedServiceSidebarHeader {
+    border-radius: 0 !important;
+}
+
+.forceCommunityEmbeddedServiceHelpButton .help {
+    margin: 0 !important;
+    -webkit-box-align: center !important;
+    -ms-flex-align: center !important;
+    align-items: center !important;
+    padding-left: 12px !important;
+}
+
+.forceCommunityEmbeddedServiceHelpButton .help svg {
+    width: 15px !important;
+    height: auto !important;
+}
+
+.embeddedServiceSidebarHeader .shortHeader,
+.embeddedServiceSidebarHeader .shortHeaderContent,
+.embeddedServiceSidebar.layout-docked .dockableContainer {
+    border-radius: 0 !important;
+}
+
+.embeddedServiceSidebarMinimizedDefaultUI .messageContent {
+    -webkit-box-pack: start !important;
+    -ms-flex-pack: start !important;
+    justify-content: flex-start !important;
+}
+
+.embeddedServiceSidebarMinimizedDefaultUI .content {
+    padding: 0 !important;
+    width: 100% !important;
+}
+
+.embeddedServiceSidebarMinimizedDefaultUI .content:after,
+.embeddedServiceHelpButton .uiButton:after {
+    content: '+';
+    padding-right: 2px;
+    font-size: 1.25rem;
+    margin-left: auto;
+}
+
+.embeddedServiceSidebarMinimizedDefaultUI.minimizedContainer:focus {
+    text-decoration: none !important;
+}
+
+.embeddedServiceLiveAgentStateChatHeader .content {
+    display: none !important;
+    height: 0 !important;
+}
+
+/* PER GESTIONE TIMEOUT */
+.embeddedServiceLiveAgentStateChatHeader.alert .content {
+    display: flex !important;
+    height: auto !important;
+    padding: 20px !important;
+}
+
+/***********************/
+
+.embeddedServiceSidebarHeader .headerChevron,
+.embeddedServiceSidebarHeader .headerChevron:after {
+    display: none !important;
+    content: none !important;
+}
+
+.embeddedServiceSidebarHeader .headerButton {
+    pointer-events: none !important;
+}
+
+.embeddedServiceSidebarHeader .headerButton:focus:before,
+.embeddedServiceSidebarHeader .headerButton:hover:before {
+    content: none !important;
+}
+
+.embeddedServiceSidebarHeader .headerButton:after {
+    content: none !important;
+}
+
+.embeddedServiceSidebarHeader .headerText {
+    -webkit-box-ordinal-group: 2 !important;
+    -ms-flex-order: 1 !important;
+    order: 1 !important;
+    -webkit-box-pack: start !important;
+    -ms-flex-pack: start !important;
+    justify-content: flex-start !important;
+    margin-left: 12px !important;
+    font-size: 0.875rem !important;
+    font-weight: 400 !important;
+    border: 0;
+}
+
+.embeddedServiceSidebarMinimizedDefaultUI .messageContent {
+    margin-left: 12px !important;
+}
+
+.embeddedServiceSidebarHeader .minimizeButton {
+    -webkit-box-ordinal-group: 3 !important;
+    -ms-flex-order: 2 !important;
+    order: 2 !important;
+}
+
+.embeddedServiceSidebarHeader .closeButton {
+    -webkit-box-ordinal-group: 4 !important;
+    -ms-flex-order: 3 !important;
+    order: 3 !important;
+}
+
+.shortHeaderContent .minimize.embeddedServiceIcon svg,
+.helpButton.embeddedServiceSidebarMinimizedDefaultUI .content .messageContent .embeddedServiceIcon {
+    display: none !important;
+}
+
+.shortHeaderContent .minimize.embeddedServiceIcon:after {
+    content: '-';
+    font-size: 2.25rem;
+    color: white;
+    position: absolute;
+    top: 5px;
+    left: 0;
+}
+
+.embeddedServiceLiveAgentStateChat .messageArea:focus {
+    border: none !important;
+}
+
+.embeddedServiceSidebarHeader .headerItem:focus:before,
+.embeddedServiceSidebarHeader .headerItem:hover:before,
+.embeddedServiceSidebarHeader .headerItem:focus:after {
+    content: none !important;
+}
+
+.embeddedServiceSidebarHeader .closeButton,
+.embeddedServiceSidebarHeader .minimizeButton {
+    padding: 0 !important;
+}
+
+.embeddedServiceSidebarHeader .shortHeaderContent {
+    padding-right: 12px !important;
+    padding-left: 12px !important;
+}
+
+.embeddedServiceSidebarHeader .minimizeButton {
+    padding-right: 12px !important;
+}
+
+/*per componente custom header*/
+/*.embedded-chat-logo,*/
+.embeddedServiceSidebarHeader .shortHeaderContent:before,
+.embeddedServiceSidebarMinimizedDefaultUI:before {
+    content: '';
+    background: url(../img/chatIcon.png) center center no-repeat;
+    width: 14px;
+    height: 14px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-item-align: center;
+    align-self: center;
+    background-size: contain;
+}
+
+
+
+
+.embeddedServiceIcon.x-small.help:before,
+.embeddedServiceHelpButton .embeddedServiceIcon::before {
+    content: '' !important;
+    background: url(../img/chatIcon.png) center center no-repeat;
+    width: 14px;
+    height: 14px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-item-align: center;
+    align-self: center;
+    background-size: contain;
+}
+
+.embeddedServiceIcon.x-small.help svg {
+    display: none;
+}
+
+.embeddedServiceLiveAgentStateChatInputFooter.chasitorInputWrapper {
+    background: #ffffff !important;
+    border-top: 1px solid #ddd !important;
+}
+
+.embeddedServiceLiveAgentStateChatInputFooter .footerMenuWrapper .footer-menu .slds-dropdown-trigger {
+    height: 100% !important;
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -webkit-box-align: center !important;
+    -ms-flex-align: center !important;
+    align-items: center !important;
+}
+
+.embeddedServiceLiveAgentStateChatInputFooter .footerMenuWrapper .footer-menu .slds-button {
+    -webkit-transform: none !important;
+    -ms-transform: none !important;
+    transform: none !important;
+}
+
+/*.uiInput.uiInputTextArea {
+    max-width: calc(100% - 30px) !important;
+}*/
+
+.embeddedServiceSidebar li.wrapper.chatMessage {
+    padding: 10px 18px;
+}
+
+.embeddedServiceLiveAgentStateChat .messageArea {
+    background-color: #fff !important;
+}
+
+.embeddedServiceSidebar .chatContent .agent {
+    border: none !important;
+    border-radius: 24px !important;
+    padding: 15px 10px 15px 37px !important;
+    margin-left: 0 !important;
+    max-width: 100% !important;
+    float: none !important;
+    background: #eee !important;
+}
+
+.embeddedServiceSidebar .chatContent .agent .slds-rich-text-editor__output span,
+.embeddedServiceSidebar .chatContent .agent .slds-rich-text-editor__output p {
+    font-size: 0.875rem !important;
+    color: #333 !important;
+}
+
+.embeddedServiceSidebar .chatContent .chasitor {
+    border-radius: 24px !important;
+    padding: 15px 37px 15px 10px !important;
+    margin-left: 0 !important;
+    max-width: 100% !important;
+    float: none !important;
+    background: #AD1100 !important;
+    text-align: right !important;
+}
+
+.embeddedServiceLiveAgentStateChatAvatar {
+    display: none !important;
+}
+
+.embeddedServiceLiveAgentStateChatItem .isCommunitiesContext {
+    bottom: auto !important;
+    top: 0 !important;
+    left: 10px !important;
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 50% !important;
+    border: 1px solid #707070 !important;
+    margin: 0 !important;
+}
+
+.embeddedServiceLiveAgentStateChatItem.withTimestamp .avatar {
+    margin: 0 !important;
+}
+
+.embeddedServiceLiveAgentStateChatItem .isCommunitiesContext .avatar {
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 50% !important;
+    float: none !important;
+    margin: 0 !important;
+}
+
+.embeddedServiceSidebar .chatMessage-avatar {
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 50% !important;
+    border: none;
+    position: absolute;
+    background-color: #fff;
+    top: 10px;
+    left: 12px;
+}
+
+.embeddedServiceLiveAgentStateChat .chatSessionStartTime {
+    margin: 20px 20px 10px !important;
+}
+
+.embeddedServiceLiveAgentStateChatItem .isCommunitiesContext {
+    display: none !important;
+}
+
+.embeddedServiceLiveAgentStateChatItem.chatMessage {
+    overflow: initial !important;
+}
+
+.embeddedServiceLiveAgentStateChatItem .nameAndTimeContent {
+    display: none !important;
+}
+
+.embeddedServiceSidebar .chasitor .chatMessage-avatar {
+    left: auto;
+    right: 12px;
+}
+
+.embeddedServiceLiveAgentStateChatMenuMessage .rich-menu {
+    border-radius: 24px !important;
+    background-color: #eee !important;
+    width: auto !important;
+}
+
+.embeddedServiceSidebar ul.rich-menu-items li {
+    border: none !important;
+    border-radius: 0 !important;
+}
+
+.embeddedServiceSidebar ul.rich-menu-items li button {
+    border-radius: 0 !important;
+}
+
+.embeddedServiceSidebar ul.rich-menu-items li {
+    border-bottom: 3px solid #fff !important;
+}
+
+.embeddedServiceSidebar ul.rich-menu-items li:last-child {
+    border-bottom: none !important;
+}
+
+.embeddedServiceLiveAgentStateChatMenuMessage .chatContent .rich-menu-item {
+    color: #005cb8 !important;
+    background: inherit !important;
+}
+
+.embeddedServiceLiveAgentStateChatMenuMessage .chatContent .rich-menu-item:hover,
+.embeddedServiceLiveAgentStateChatMenuMessage .chatContent .rich-menu-item:active,
+.embeddedServiceLiveAgentStateChatMenuMessage .chatContent .rich-menu-item:hover:active,
+.embeddedServiceLiveAgentStateChatMenuMessage .chatContent .rich-menu-item:focus,
+.embeddedServiceLiveAgentStateChatMenuMessage .chatContent .rich-menu-item:focus:hover {
+    text-decoration: underline !important;
+    color: #246eb7 !important;
+    background: initial !important;
+    opacity: 1 !important;
+}
+
+.embeddedServiceLiveAgentStateChatMenuMessage .rich-menu-itemOptionIsClicked {
+    background-color: inherit !important;
+}
+
+.embeddedServiceSidebar .chatMessage .slds-modal.slds-fade-in-open .slds-modal__container {
+    padding: 0 !important;
+    width: 100% !important;
+    margin: 0 !important;
+    z-index: 999 !important;
+}
+
+.embeddedServiceSidebar .chatMessage .slds-modal__container .slds-modal__content {
+    height: 100% !important;
+    border-radius: 0 !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    text-align: left !important;
+    padding: 12px !important;
+    font-size: 0.875rem;
+}
+
+.embeddedServiceSidebar .chatMessage header.slds-modal__header {
+    border-radius: 0 !important;
+    border-bottom: 2px solid #eee !important;
+    padding: 3px !important;
+    text-align: left !important;
+}
+
+.embeddedServiceSidebar .chatMessage header.slds-modal__header .slds-button {
+    position: static !important;
+}
+
+.embeddedServiceSidebar .chatMessage header.slds-modal__header .slds-button svg {
+    fill: #06c !important;
+}
+
+.embeddedServiceSidebar .chatMessage .slds-modal__container .slds-modal__content h2 {
+    margin-bottom: 12px;
+    border: 0;
+}
+
+.embeddedServiceLiveAgentStateChatItem.chatMessage button {
+    font-size: 1rem;
+}
+
+.embeddedServiceLiveAgentStateChatItem.chatMessage button:hover,
+.embeddedServiceLiveAgentStateChatItem.chatMessage button:hover:focus,
+.embeddedServiceLiveAgentStateChatItem.chatMessage button:hover span,
+.embeddedServiceLiveAgentStateChatItem.chatMessage button:hover:focus span {
+    color: inherit !important;
+}
+
+.embeddedServiceLiveAgentStateChatItem.chatMessage button:hover,
+.embeddedServiceLiveAgentStateChatItem.chatMessage button:hover:focus {
+    background: inherit !important;
+    opacity: 1 !important;
+}
+
+.embeddedServiceSidebar .stateBody.embeddedServiceSidebarState {
+    overflow-y: scroll;
+}
+
+.embeddedServiceSidebar #prechatContent {
+    font-size: 0.875rem;
+    text-align: left;
+    padding: 12px;
+    margin-top: 12px;
+}
+
+.embeddedServiceSidebar #prechatContent h2 {
+    font-weight: 700;
+}
+
+.embeddedServiceSidebar #prechatContent .slds-form-element {
+    margin-top: 10px;
+}
+
+.embeddedServiceSidebar .stateBody.embeddedServiceSidebarState {
+    overflow-y: auto !important;
+}
+
+.embeddedServiceSidebarMinimizedDefaultUI.sidebarHeader {
+    bottom: 0 !important;
+}
+
+@media (max-width: 767px) {
+
+    .embeddedServiceSidebar #prechatContent .slds-radio_faux {
+        padding-right: 20px !important;
+        margin-right: 0 !important;
+    }
+
+    .embeddedServiceSidebar #prechatContent .slds-form-element__label {
+        padding-left: 10px !important;
+    }
+
+    .embeddedServiceSidebar.layout-docked .dockableContainer {
+        max-height: initial !important;
+        height: 90% !important;
+    }
+
+}
+
+.embeddedServiceSidebar #dialogTextBody .uiOutputRichText {
+    display: none;
+}
+
+.slds-modal__container {
+    min-width: auto !important;
+}
+
+.embeddedServiceLiveAgentStateWaitingHeader .content {
+    display: none !important;
+    height: 0 !important;
+}
+
+.embeddedServiceLiveAgentStateWaiting .waitingGreeting {
+    font-size: 1.125rem !important;
+}
+
+.embeddedServiceLiveAgentStateWaiting .waitingMessage {
+    font-size: 1rem !important;
+}
+
+.embeddedServiceSidebar .headerTextContent #headerTextLabel {
+    display: none;
+}
+
+.embeddedServiceSidebar .headerTextContent:after {
+    content: 'Assistente Virtuale';
+    font-family: Arial, sans-serif;
+}
+
+.embeddedServiceSidebar .minimizedText:after {
+    content: 'Assistente Virtuale';
+}
+
+.embeddedServiceSidebar .minimizedText .message {
+    display: none;
+}
+
+.embeddedServiceSidebar #prechatContent .slds-button {
+    margin: 0 auto;
+    display: block;
+    margin-top: 20px;
+    line-height: 2.1;
+    font-size: 0.9375rem;
+}
+
+.embeddedServiceSidebar #prechatContent p {
+    font-size: 0.875rem;
+}
+
+/*.embeddedServiceSidebar #prechatContent p,
+.embeddedServiceSidebar #prechatContent h2 {
+    font-style: italic;
+}*/
+
+.embeddedServiceSidebar .chatbot-avatar {
+    background: url(../img/bergamo1.png) center center no-repeat;
+    background-size: cover;
+}
+
+.embeddedServiceSidebar .user-avatar {
+    background: url(../img/userAvatar.png) center center no-repeat, -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 1)), to(rgba(255, 255, 255, 1)));
+    background: url(../img/userAvatar.png) center center no-repeat, -o-linear-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 1));
+    background: url(../img/userAvatar.png) center center no-repeat, linear-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 1));
+    background-size: contain;
+}
+
+.embeddedServiceSidebar .chatbot-avatar img,
+.embeddedServiceSidebar .user-avatar img {
+    display: none;
+}
+
+.embeddedServiceSidebarHeader {
+    height: 175px !important;
+}
+
+/*.embeddedServiceSidebarHeader:after {
+    content: "Benvenuto nel servizio di assistenza online per il progetto Falstaff";
+    font-size: 12px;
+    padding: 9px 12px 18px;
+    text-align: left;
+    color: #ffffff;
+    border-top: 1px solid #ffffff;
+    background: #06c;
+    position: absolute;
+    top: 95px;
+    width: 100%;
+    left: 0;
+    right: 0;
+    z-index: 3;
+}*/
+
+/*.embeddedServiceSidebarHeader:before {
+    background: url(../img/logoDoganeBordo.png) center center no-repeat, linear-gradient(rgba(40, 92, 131, 1), rgba(40, 92, 131, 1));
+    background-size: 110px;
+    background-position: center 5px;
+    height: 53px;
+    width: 100%;
+    position: absolute;
+    content: '';
+    top: 43px;
+    left: 0;
+    right: 0;
+    z-index: 2;
+}*/
+
+/*.embeddedServiceSidebar #prechatContent {
+    padding-top: 70px !important;
+}*/
+
+.slds-modal {
+    top: 52px !important;
+}
+
+.embeddedServiceSidebarMinimizedDefaultUI:not(.helpButton) .messageContent {
+    -webkit-box-orient: horizontal !important;
+    -webkit-box-direction: normal !important;
+    -ms-flex-direction: row !important;
+    flex-direction: row !important;
+}
+
+.embeddedServiceSidebarMinimizedDefaultUI:not(.helpButton) .minimizedText {
+    width: auto !important;
+}
+
+.embeddedServiceSidebarMinimizedDefaultUI .minimizedText {
+    -webkit-box-pack: start !important;
+    -ms-flex-pack: start !important;
+    justify-content: flex-start !important;
+}
+
+.embeddedServiceSidebarButton {
+    font-size: 1rem;
+}
+
+.embeddedServiceSidebarButton .label,
+.embeddedServiceSidebarButton:disabled .label {
+    background-color: transparent !important;
+}
+
+.embeddedServiceSidebarButton .label,
+.embeddedServiceSidebarButton:disabled .label,
+.embeddedServiceSidebarDialogState .dialogButton,
+.embeddedServiceLiveAgentStateChat .endChatContainer .endChatButton {
+    text-decoration: none !important;
+}
+
+/* css custom per avatar rotondo */
+
+.embeddedServiceHelpButton .uiButton .helpButtonLabel {
+    display: none;
+}
+
+.embeddedServiceHelpButton .uiButton:after {
+    content: none;
+}
+
+.embeddedServiceHelpButton .helpButton {
+    height: 45px !important;
+    width: 45px !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    background: none !important;
+}
+
+.embeddedServiceSidebarMinimizedDefaultUI,
+.embeddedServiceHelpButton .helpButton .uiButton {
+    height: 45px !important;
+    padding: 0 !important;
+}
+
+.embeddedServiceHelpButton .helpButton {
+    right: 35px !important;
+    bottom: 35px !important;
+}
+
+.embeddedServiceHelpButton .embeddedServiceIcon {
+    margin: 0 !important;
+}
+
+.embeddedServiceIcon.x-small.help:before,
+.embeddedServiceHelpButton .embeddedServiceIcon::before {
+    content: '' !important;
+    background: url(../img/bergamo1.png) center center no-repeat !important;
+    width: 45px !important;
+    height: 45px !important;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-item-align: center;
+    align-self: center;
+    background-size: cover !important;
+    border-radius: 50%;
+    -webkit-box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.5) !important;
+    box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.5) !important;
+    border: 5px solid #ffffff;
+    cursor: pointer;
+}
+
+.embeddedServiceHelpButton .uiButton .helpButtonLabel {
+    display: none !important;
+}
+
+.embeddedServiceHelpButton .helpButton .uiButton {
+    background: none !important;
+}
+
+.embeddedServiceHelpButton .helpButton .uiButton:before {
+    background: none !important;
+}
+
+.embeddedServiceHelpButton .embeddedServiceIcon:hover,
+.cAA_ChatMinimizedComponent:hover {
+    -webkit-animation: pulseAvatar 3s infinite;
+    animation: pulseAvatar 3s infinite;
+    border-radius: 50% !important;
+}
+
+.load-animation {
+    -webkit-animation: loadAvatar 3s infinite !important;
+    animation: loadAvatar 3s infinite !important;
+    border-radius: 50% !important;
+}
+
+.embeddedServiceHelpButton .helpButton .uiButton:focus {
+    outline: none !important;
+}
+
+.cAA_ChatMinimizedComponent {
+    height: 45px !important;
+    width: 45px !important;
+    min-width: auto !important;
+    padding: 0 !important;
+    right: 25px !important;
+    bottom: 25px !important;
+    border-radius: 50% !important;
+    background: url(../img/bergamo1.png) center center no-repeat !important;
+    background-size: cover !important;
+    -webkit-box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.5) !important;
+    box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.5) !important;
+    border: 5px solid #ffffff;
+    cursor: pointer;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+}
+
+.embeddedServiceHelpButton .embeddedServiceIcon {
+    display: inline-block !important;
+}
+
+.slds-button--brand,
+.slds-button_brand,
+.embeddedServiceSidebarButton.dialog-button-0,
+.embeddedServiceSidebarButton.endChatButton {
+    background-color: #AD1100 !important;
+    border-color: none;
+}
+
+/*.uiButton.helpButtonEnabled:focus .embeddedServiceIcon {
+    outline: 2px solid #FF8C00 !important;
+}
+
+
+.cAA_ChatMinimizedComponent,
+.embeddedServiceHelpButton .helpButton .uiButton .embeddedServiceIcon {
+    overflow: visible !important;
+}
+
+.embeddedServiceSidebarHeader .headerItem.minimizeButton .minimize.embeddedServiceIcon {
+    height: 13.5px;
+    width: 16px;
+    position: relative;
+}
+
+.embeddedServiceHelpButton .helpButton:focus,
+.cAA_ChatMinimizedComponent.minimizedContainer:focus {
+    outline: none !important;
+}
+
+.cAA_ChatMinimizedComponent.minimizedContainer:focus:after {
+    outline: none !important;
+    border: 2px solid #FF8C00 !important;
+    border-radius: 50%;
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+}
+
+.embeddedServiceHelpButton .helpButton .uiButton:focus .embeddedServiceIcon {
+    outline: none !important;
+    border: 2px solid #FF8C00 !important;
+    border-radius: 50%;
+    -webkit-transform: translate3d(-2px, -2px, 0);
+    transform: translate3d(-2px, -2px, 0);
+}
+
+.embeddedServiceSidebar #prechatContent .slds-button:focus,
+.embeddedServiceSidebarHeader .headerItem.closeButton:focus svg,
+.embeddedServiceSidebarButton:focus,
+.embeddedServiceSidebarHeader .headerItem.minimizeButton:focus .minimize.embeddedServiceIcon {
+    outline: 2px solid #FF8C00 !important;
+}
+
+/* animazione fullscreen */
+
+.embeddedServiceSidebar.sidebarMaximized.modalContainer .dockableContainer {
+    -webkit-animation: slideUpChat 0.4s ease-out;
+    animation: slideUpChat 0.4s ease-out;
+}
+
+.embeddedServiceSidebar.modalContainer,
+.embeddedServiceHelpButton {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+}
+
+.embeddedServiceSidebar.sidebarMinimized.modalContainer:before,
+.embeddedServiceHelpButton:before {
+    content: '';
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    bottom: 55px;
+    right: 55px;
+    /*background: rgba(0, 0, 0, 0.2); */
+    border-radius: 50%;
+    -webkit-transition: all .4s ease;
+    -o-transition: all .4s ease;
+    transition: all .4s ease;
+    pointer-events: none;
+}
+
+.embeddedServiceSidebar.sidebarMaximized.modalContainer:before,
+.embeddedServiceHelpButton.sidebarMaximized:before {
+    content: '';
+    position: fixed;
+    width: 3940px;
+    height: 3940px;
+    bottom: -1313.3333333333333px;
+    right: -1313.3333333333333px !important;
+    background: transparent;
+    border-radius: 50%;
+    -webkit-transition: all .4s ease;
+    -o-transition: all .4s ease;
+    transition: all .4s ease;
+    pointer-events: none;
+}
+
+.embeddedServiceHelpButton .helpButton {
+    pointer-events: all;
+}
+
+.embeddedServiceSidebar.firstSidebarMaximized:before {
+    content: '';
+    -webkit-animation: firstSidebarMaximized .4s ease;
+    animation: firstSidebarMaximized .4s ease;
+}
+
+@-webkit-keyframes firstSidebarMaximized {
+    0% {
+        content: '';
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        bottom: 55px;
+        right: 55px;
+        background: rgba(0, 0, 0, 0.2);
+        border-radius: 50%;
+        -webkit-transition: all .4s ease;
+        -o-transition: all .4s ease;
+        transition: all .4s ease;
+        pointer-events: none;
+    }
+
+    100% {
+        content: '';
+        position: absolute;
+        width: 3940px;
+        height: 3940px;
+        bottom: -1313.3333333333333px;
+        right: -1313.3333333333333px !important;
+        background: transparent;
+        border-radius: 50%;
+        -webkit-transition: all .4s ease;
+        -o-transition: all .4s ease;
+        transition: all .4s ease;
+        pointer-events: none;
+    }
+}
+
+@keyframes firstSidebarMaximized {
+    0% {
+        content: '';
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        bottom: 55px;
+        right: 55px;
+        background: rgba(0, 0, 0, 0.2);
+        border-radius: 50%;
+        -webkit-transition: all .4s ease;
+        -o-transition: all .4s ease;
+        transition: all .4s ease;
+        pointer-events: none;
+    }
+
+    100% {
+        content: '';
+        position: absolute;
+        width: 3940px;
+        height: 3940px;
+        bottom: -1313.3333333333333px;
+        right: -1313.3333333333333px !important;
+        background: transparent;
+        border-radius: 50%;
+        -webkit-transition: all .4s ease;
+        -o-transition: all .4s ease;
+        transition: all .4s ease;
+        pointer-events: none;
+    }
+}
+
+@-webkit-keyframes pulseAvatar {
+    0% {
+        -webkit-box-shadow: 0 0 0 0 rgba(42, 172, 226, 1);
+        box-shadow: 0 0 0 0 rgba(42, 172, 226, 1);
+    }
+
+    25% {
+        -webkit-box-shadow: 0 0 0 10px rgba(230, 0, 0, 0);
+        box-shadow: 0 0 0 10px rgba(230, 0, 0, 0);
+    }
+
+    26% {
+        -webkit-box-shadow: 0 0 0 0 rgba(230, 0, 0, 0);
+        box-shadow: 0 0 0 0 rgba(230, 0, 0, 0);
+    }
+
+    27% {
+        -webkit-box-shadow: 0 0 0 0 rgba(42, 172, 226, 1);
+        box-shadow: 0 0 0 0 rgba(42, 172, 226, 1);
+    }
+
+    70% {
+        -webkit-box-shadow: 0 0 0 20px rgba(230, 0, 0, 0);
+        box-shadow: 0 0 0 20px rgba(230, 0, 0, 0);
+    }
+
+    100% {
+        -webkit-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    }
+}
+
+@keyframes pulseAvatar {
+    0% {
+        -webkit-box-shadow: 0 0 0 0 rgba(42, 172, 226, 1);
+        box-shadow: 0 0 0 0 rgba(42, 172, 226, 1);
+    }
+
+    25% {
+        -webkit-box-shadow: 0 0 0 10px rgba(230, 0, 0, 0);
+        box-shadow: 0 0 0 10px rgba(230, 0, 0, 0);
+    }
+
+    26% {
+        -webkit-box-shadow: 0 0 0 0 rgba(230, 0, 0, 0);
+        box-shadow: 0 0 0 0 rgba(230, 0, 0, 0);
+    }
+
+    27% {
+        -webkit-box-shadow: 0 0 0 0 rgba(42, 172, 226, 1);
+        box-shadow: 0 0 0 0 rgba(42, 172, 226, 1);
+    }
+
+    70% {
+        -webkit-box-shadow: 0 0 0 20px rgba(230, 0, 0, 0);
+        box-shadow: 0 0 0 20px rgba(230, 0, 0, 0);
+    }
+
+    100% {
+        -webkit-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    }
+}
+
+@-webkit-keyframes loadAvatar {
+    0% {
+        -webkit-box-shadow: 0 0 0 0 rgba(42, 172, 226, 1);
+        box-shadow: 0 0 0 0 rgba(42, 172, 226, 1);
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+
+    25% {
+        -webkit-box-shadow: 0 0 0 10px rgba(230, 0, 0, 0);
+        box-shadow: 0 0 0 10px rgba(230, 0, 0, 0);
+        -webkit-transform: translateY(10px);
+        transform: translateY(10px);
+    }
+
+    26% {
+        -webkit-box-shadow: 0 0 0 0 rgba(230, 0, 0, 0);
+        box-shadow: 0 0 0 0 rgba(230, 0, 0, 0);
+    }
+
+    27% {
+        -webkit-box-shadow: 0 0 0 0 rgba(42, 172, 226, 1);
+        box-shadow: 0 0 0 0 rgba(42, 172, 226, 1);
+    }
+
+    50% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+
+    70% {
+        -webkit-box-shadow: 0 0 0 20px rgba(230, 0, 0, 0);
+        box-shadow: 0 0 0 20px rgba(230, 0, 0, 0);
+    }
+
+    75% {
+        -webkit-transform: translateY(10px);
+        transform: translateY(10px);
+    }
+
+    100% {
+        -webkit-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+}
+
+@keyframes loadAvatar {
+    0% {
+        -webkit-box-shadow: 0 0 0 0 rgba(42, 172, 226, 1);
+        box-shadow: 0 0 0 0 rgba(42, 172, 226, 1);
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+
+    25% {
+        -webkit-box-shadow: 0 0 0 10px rgba(230, 0, 0, 0);
+        box-shadow: 0 0 0 10px rgba(230, 0, 0, 0);
+        -webkit-transform: translateY(10px);
+        transform: translateY(10px);
+    }
+
+    26% {
+        -webkit-box-shadow: 0 0 0 0 rgba(230, 0, 0, 0);
+        box-shadow: 0 0 0 0 rgba(230, 0, 0, 0);
+    }
+
+    27% {
+        -webkit-box-shadow: 0 0 0 0 rgba(42, 172, 226, 1);
+        box-shadow: 0 0 0 0 rgba(42, 172, 226, 1);
+    }
+
+    50% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+
+    70% {
+        -webkit-box-shadow: 0 0 0 20px rgba(230, 0, 0, 0);
+        box-shadow: 0 0 0 20px rgba(230, 0, 0, 0);
+    }
+
+    75% {
+        -webkit-transform: translateY(10px);
+        transform: translateY(10px);
+    }
+
+    100% {
+        -webkit-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+}
+
+@-webkit-keyframes slideUpChat {
+    0% {
+        -webkit-transform: translateY(200%);
+        transform: translateY(200%);
+    }
+
+    100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUpChat {
+    0% {
+        -webkit-transform: translateY(200%);
+        transform: translateY(200%);
+    }
+
+    100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+}
+
+@media screen and (-ms-high-contrast: active),
+screen and (-ms-high-contrast: none) {
+
+    /* IE10+ specific styles go here */
+    .embeddedServiceHelpButton .helpButton .uiButton {
+        display: block !important;
+        right: 35px !important;
+    }
+
+    .embeddedServiceHelpButton .helpButton .uiButton,
+    .embeddedServiceHelpButton .helpButton {
+        overflow: visible;
+    }
+
+    .embeddedServiceSidebarHeader .minimizeButton {
+        padding-left: 3px !important;
+    }
+
+    .shortHeaderContent .minimize.embeddedServiceIcon:after {
+        left: 1px !important;
+    }
+
+    .embeddedServiceSidebarHeader .closeButton {
+        padding-left: 3px !important;
+        padding-right: 3px !important;
+    }
+
+    .embeddedServiceSidebarHeader .closeButton svg {
+        padding-right: 1px !important;
+    }
+}
+
+.shortHeaderContent .minimize.embeddedServiceIcon:after {
+    left: 1px !important;
+}
+
+.embeddedServiceSidebarHeader .closeButton svg {
+    padding-right: 1px !important;
+}
+
+@media (max-width: 600px) {
+
+    .embeddedServiceIcon.x-small.help:before,
+    .embeddedServiceHelpButton .embeddedServiceIcon::before,
+    .embeddedServiceHelpButton .helpButton,
+    .cAA_ChatMinimizedComponent {
+        width: 85px !important;
+        height: 85px !important;
+    }
+
+    .embeddedServiceSidebarMinimizedDefaultUI,
+    .embeddedServiceHelpButton .helpButton .uiButton {
+        height: 85px !important;
+    }
+
+}
+
+@media (max-height: 650px) {
+    .embeddedServiceSidebar.layout-docked .dockableContainer {
+        height: 90% !important;
+    }
+}
+
+/* Custom outline su WaitingStateContent */
+
+.embeddedServiceLiveAgentStateWaiting .waitingStateContent:focus {
+    outline: none !important;
+}
+
+/* focus su loading chat (rimuovere?) */
+/* rimosso post summer '20
+.embeddedServiceLiveAgentStateWaiting .waitingStateContent:focus .loadingBallContainer {
+    outline: 2px solid #FF8C00 !important;
+    outline-offset: 2px;
+}*/
+
+/* Custom outline su button */
+
+button.slds-button:focus,
+button.rich-menu-item:focus {
+    outline: 2px solid #FF8C00 !important;
+}
+
+/* Custom outline sui singoli messaggi */
+
+.embeddedServiceSidebar li.wrapper.chatMessage:focus {
+    outline: none;
+}
+
+.embeddedServiceSidebar li.wrapper.chatMessage:focus .chatContent {
+    outline: 2px solid #FF8C00 !important;
+    outline-offset: 0;
+}
+
+/* Classe che nasconde div */
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+/* bordi custom per accessibilità */
+
+.embeddedServiceSidebar .chatContent .agent {
+    border: 1px solid #8c8c8c !important;
+}
+
+.embeddedServiceLiveAgentStateChatMenuMessage .chatContent .rich-menu-item {
+    border: 1px solid #8c8c8c !important;
+}
+
+.embeddedServiceLiveAgentStateChatMenuMessage .chatContent li:first-child .rich-menu-item {
+    border-radius: 24px 24px 0 0 !important;
+}
+
+.embeddedServiceLiveAgentStateChatMenuMessage .chatContent li:last-child .rich-menu-item {
+    border-radius: 0 0 24px 24px !important;
+}
+
+
+/* PER GESTIONE TIMEOUT */
+.embeddedServiceLiveAgentStateChatHeader.alert .content {
+    display: flex !important;
+    height: auto !important;
+    padding: 20px !important;
+}
+
+/***********************/
+/* per gestione focus su icone finestra ??? */
+/* rimosso post summer '20 */
+.embeddedServiceSidebarHeader .headerItem.closeButton:focus svg,
+.embeddedServiceSidebarHeader .headerItem.minimizeButton:focus .minimize.embeddedServiceIcon,
+.embeddedServiceSidebar #prechatContent .slds-button:focus,
+.embeddedServiceSidebarButton:focus {
+    outline: 2px solid #FF8C00 !important;
+}
+
+/* rimosso post summer '20 */
+.embeddedServiceSidebarHeader .closeButton svg {
+    padding-right: 1px !important;
+}
+
+.shortHeaderContent .minimize.embeddedServiceIcon:after {
+    left: 1px !important;
+}
+
+.embeddedServiceSidebarHeader .closeButton svg {
+    padding-right: 1px !important;
+}
+
+.embeddedServiceSidebarHeader .minimizeButton {
+    padding-left: 3px !important;
+}
+
+/*focus input text */
+.embeddedServiceLiveAgentStateChatInputFooter .chasitorText.textAreaIsFocused {
+    outline: 2px solid #FF8C00 !important;
+}
+
+
+
+
+embeddedservice-chat-header button.closeButton:focus,
+embeddedservice-chat-header button.minimizeButton:focus {
+    outline: 2px solid #ff8c00 !important;
+}
+
+
+/*per nuovo componente header*/
+embeddedservice-chat-header .sidebarHeader:before {
+    content: '';
+    background: url(../img/chatIcon.png) center center no-repeat;
+    width: 14px;
+    height: 14px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-item-align: center;
+    align-self: center;
+    background-size: contain;
+    margin-right: 12px;
+    flex-shrink: 0;
+}
+
+/* fine nuovo componente header*/
+
+/* css per sovrascrivere liferay e style globale portale lotteria */
+embeddedservice-chat-header h2 {
+    font-size: 1rem !important;
+}
+
+embeddedservice-chat-header lightning-icon svg {
+    width: 1.25rem !important;
+    height: 1.25rem !important;
+}
+
+
+.dockableContainer .label {
+    border: none !important;
+}
+
+.off {
+    display: none;
+    position: fixed;
+    width: 0%
+}
+
+.bubble {
+    width: auto !important;
+    position: fixed;
+    bottom: 10rem;
+    right: 2%;
+    padding: 8px 20px 8px;
+    font: 400 1.125rem 'Titillium Web', sans-serif;
+    color: #000;
+    white-space: nowrap;
+    background: #FFF;
+    border-radius: 20px 20px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .2);
+    animation: fadeIn ease 2s;
+}
+
+.bubble:after {
+    border-style: solid;
+    display: block;
+    content: "";
+    position: absolute;
+    bottom: -1.55em;
+    left: 25%;
+    box-sizing: border-box;
+    border: 0.8em solid black;
+    border-color: transparent transparent #FFF #FFF;
+    transform-origin: 0 0;
+    transform: rotate(-45deg);
+    box-shadow: -3px 3px 3.5px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 0px 5px;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@-o-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@-ms-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
