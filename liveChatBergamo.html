@@ -1,46 +1,216 @@
-<html>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+    <title>[PROD] Comune di Bergamo</title>
+
+    <link rel="stylesheet" type="text/css" href="style/styles/comune-bergamo-chatbot-override.css" media="screen" />
+
+</head>
 
 <body>
-    
-<style type='text/css'>
-	.embeddedServiceHelpButton .helpButton .uiButton {
-		background-color: #AD1100;
-		font-family: "Salesforce Sans", sans-serif;
-	}
-	.embeddedServiceHelpButton .helpButton .uiButton:focus {
-		outline: 1px solid #AD1100;
-	}
-	@font-face {
-		font-family: 'Salesforce Sans';
-		src: url('https://c1.sfdcstatic.com/etc/clientlibs/sfdc-aem-master/clientlibs_base/fonts/SalesforceSans-Regular.woff') format('woff'),
-		url('https://c1.sfdcstatic.com/etc/clientlibs/sfdc-aem-master/clientlibs_base/fonts/SalesforceSans-Regular.ttf') format('truetype');
-	}
-</style>
 
-<script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
-<script type='text/javascript'>
-	var initESW = function(gslbBaseURL) {
+    <!-- START PROD Comune di Bergamo - Accessible version -->
+    <script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
+    <script type='text/javascript'>
+
+        // metodo custom per accessibilità
+        function accessibilityOnNewMsg() {
+            // gestione accessibilità per nuovi messaggi e menù inviati dal bot
+            // recupero wrapper e aggiunta tabindex su ogni figlio (singoli messaggi) per renderli navigabili da tastiera
+            var wrapperElementClass = document.getElementsByClassName("wrapper");
+            if (wrapperElementClass.length > 0) {
+                for (var i = 0; i < wrapperElementClass.length; i++) {
+                    wrapperElementClass[i].setAttribute("tabindex", "0");
+                }
+            }
+
+            // recupero messaggi dell'utente
+            var userMsgs = document.getElementsByClassName("chasitor");
+            if (userMsgs.length > 0) {
+                // recupero contenuto ultimo messaggio e set aria-live polite per farlo leggere dallo SR
+                var lastUserMsg = userMsgs[userMsgs.length - 1];
+                var nextSibling = lastUserMsg.nextSibling;
+                if (nextSibling) {
+                    nextSibling.setAttribute("aria-live", "polite");
+                } else {
+                    // se non trova l'ultimo messaggio riprova con un timeout poichè il bot impiega tempo a rispondere
+                    var intervalResponse = window.setInterval(function () {
+                        var nextSibling = lastUserMsg.nextSibling;
+                        if (nextSibling) {
+                            nextSibling.setAttribute("aria-live", "polite");
+                            clearInterval(intervalResponse);
+                        }
+                    }, 10);
+                }
+            }
+            setTimeout(function manageUnseen() {
+                // nasconde unseenMessageBanner nel caso in cui compaia
+                var unseenMessageBanner = document.getElementsByClassName("unseenMessageBanner");
+                if (unseenMessageBanner.length > 0) {
+                    unseenMessageBanner[0].setAttribute("aria-hidden", "true");
+                    unseenMessageBanner[0].setAttribute("tabindex", "-1");
+                }
+            }, 500);
+
+        }
+
+        // metodo custom per accessibilità
+        function manageHelpButton() {
+            var intervalTitle = window.setInterval(function () {
+
+                // aggiunge title e aria-label sul pulsante iniziale
+                var helpButtonEnElements = document.getElementsByClassName('helpButtonEnabled');
+
+                if (helpButtonEnElements.length > 0) {
+                    var helpButtonEn = helpButtonEnElements[0];
+                    helpButtonEn.setAttribute('title', "Assistente Virtuale");
+                    helpButtonEn.setAttribute('aria-label', "Assistente virtuale premi invio per conoscere la privacy policy e iniziare la conversazione.");
+                    clearInterval(intervalTitle);
+                }
+            }, 10);
+        }
+
+        // metodo custom per accessibilità
+        function manageInput() {
+            // aggiunge la label alla casella di input
+            var inputClass = document.getElementsByClassName("chasitorControls");
+            if (inputClass.length > 0) {
+                var uiLabel = inputClass[0].getElementsByTagName('label')[0];
+                if (uiLabel) {
+                    uiLabel.firstChild.innerHTML = "Digita il tuo messaggio e premi invio sulla tastiera per consegnarlo";
+                }
+            }
+        }
+
+        function managePreTag(node) {
+            // metodo per escludere dallo screenreader il messaggio contenente il json per il rich text
+            var intervalTitle = window.setInterval(function () {
+                var allPre = node.getElementsByTagName('pre');
+                if (allPre.length > 0) {
+                    for (var i = 0; i < allPre.length; i++) {
+                        if (allPre[i].textContent.includes('rich_text:')) {
+                            allPre[i].setAttribute("aria-hidden", "true");
+                        } else {
+                            allPre[i].setAttribute("aria-hidden", "false");
+                        }
+                    }
+                }
+            }, 10);
+        }
+
+        // metodo custom per accessibilità
+        const callback = function (mutationsList, observer) {
+            // controllo delle mutazioni che avvengono nel body
+            for (var i = 0; i < mutationsList.length; i++) {
+                var mutation = mutationsList[i];
+                for (var j = 0; j < mutation.addedNodes.length; j++) {
+                    var node = mutation.addedNodes[j];
+                    // se un nodo che subito una mutazione ha la classe embeddedServiceHelpButton richiama il manageHelpButton (gestione comparsa button chatbot)
+                    if (node.className == 'embeddedServiceHelpButton') {
+                        manageHelpButton();
+                    }
+                    if (node.className == 'accessibleText') {
+                        managePreTag(node);
+                    }
+                    // se un nodo che ha subito una mutazione ha le seguenti classi, vuol dire che la finestra del bot è stata aperta
+                    // viene disconnesso l'observer attuale (perchè in ascolto su tutto il body) e ne viene istanziato uno più specifico che ascolta soltanto le mutazioni che avvengono all'interno della modale del bot
+                    if (node.className == 'modalContainer sidebarMaximized loading initialLoading layout-hidden embeddedServiceSidebar') {
+                        observerDialogBox.observe(document.getElementsByClassName("modalContainer")[0], config);
+                        observer.disconnect();
+                    }
+                    if (node.id == 'esw_storage_iframe') {
+                        node.setAttribute("title", "esw_storage_iframe");
+                    }
+                    if (node.id === 'fileUploadForm') {
+                        node.remove();
+                    }
+                }
+            }
+        };
+
+        // metodo custom per accessibilità
+        const callbackDialogBox = function (mutationsList, observer) {
+            // controllo delle mutazioni che avvengono nella modale del bot
+            for (var i = 0; i < mutationsList.length; i++) {
+                var mutation = mutationsList[i];
+                for (var j = 0; j < mutation.addedNodes.length; j++) {
+                    var node = mutation.addedNodes[j];
+
+                    if (node.className == 'accessibleText') {
+                        managePreTag(node);
+                    }
+                    // nasconde allo screen reader il banner dei messaggi non letti e lo rende non raggiungibile tramite tab
+                    if (node.className == 'unseenMessageBanner embeddedServiceLiveAgentStateChatUnreadMessageBanner') {
+                        node.setAttribute("aria-hidden", "true");
+                        node.setAttribute("tabindex", "-1");
+                    }
+                    // gestione conversazione
+                    // il wrapper della conversazione deve avere aria-live off per evitare che rilegga ogni volta da capo
+                    if (node.classList && node.classList.contains('wrapper')) {
+                        var wrapperClass = document.getElementsByClassName("messageWrapper");
+                        if (wrapperClass.length > 0) {
+                            var wrapper = wrapperClass[0];
+                            if (!wrapper.classList.contains("accessibleWrapper")) {
+                                wrapper.setAttribute("aria-live", "off");
+                                wrapper.classList.add("accessibleWrapper");
+                            }
+                        }
+                        // rende il wrapper accessibile tramite tab
+                        node.setAttribute("tabindex", "0");
+                    }
+                    // gestione casella di input, che ha queste classi quando compare per la prima volta (prima volta che viene fatto il maximize)
+                    if (node.className == 'featureBody embeddedServiceSidebarFeature embeddedServiceLiveAgentSidebarFeature') {
+                        manageInput();
+                    }
+                    // gestione casella di input, che ha queste classi quando compare su aggiornamento della pagina
+                    if (node.className == 'stateBody embeddedServiceSidebarState embeddedServiceLiveAgentStateChat') {
+                        manageInput();
+                    }
+
+                    // aggiunta title all'header della chat
+                    if (node.className === 'sidebarHeader') {
+                        node.setAttribute('title', "Chatbot Fatturazione e Corrispettivi");
+                    }
+
+                }
+            }
+
+        };
+
+        const targetNodeGeneral = document.body;
+        const config = {
+            attributes: false,
+            characterData: false,
+            childList: true,
+            subtree: true
+        };
+
+        // observer per click su maximize
+        const observer = new MutationObserver(callback);
+
+        // observer su refresh pagina
+        const observerDialogBox = new MutationObserver(callbackDialogBox);
+
+        var initESW = function (gslbBaseURL) {
 		
-	//var show = false;
-	//var counter = 0;
-        
-        embedded_svc.addEventHandler("afterMaximize", function(data) {
+			embedded_svc.addEventHandler("afterMaximize", function(data) {
             console.log("afterMaximize event was fired.");
-		console.log(counter);
+		
 		
             	var el = document.getElementById('divTextNodeCustom');
-		console.log('el: '+ el);
-            	if (el == null) {
+            	if (el !== null) {
            
                 var li2 = document.createElement("div");
-		li2.setAttribute("id", "divTextNodeCustom");
+				li2.setAttribute("id", "divTextNodeCustom");
                 li2.style.color = "white";
                 li2.style.backgroundColor  = "rgb(173, 17, 0)";
                 li2.style.padding = "5px";
 		
-		//if (counter < 3) {
-		//counter++;
-                li2.appendChild(document.createTextNode("Il contact center dalle 09:00 alle 13:00, dal lunedì al venerdì, è raggiungibile anche al numero verde 800.29.21.10"));
+                li2.appendChild(document.createTextNode("Puoi rivolgerti al contact center anche attraverso il numero verde 800.29.21.10, dal Lunedì al Venerdì, dalle ore 09:00 alle ore 13:00"));
                     
                 var sidebar = document.querySelector("div.formContent.embeddedServiceSidebarForm");
                 
@@ -48,57 +218,157 @@
             	}
             
         });    
-		
-		embedded_svc.settings.displayHelpButton = true; //Or false
-		embedded_svc.settings.language = ''; //For example, enter 'en' or 'en-US'
 
-		//embedded_svc.settings.defaultMinimizedText = '...'; //(Defaults to Chat with an Expert)
-		//embedded_svc.settings.disabledMinimizedText = '...'; //(Defaults to Agent Offline)
-		//embedded_svc.settings.extraPrechatFormDetails = ['Il contact center dalle 09:00 alle 13:00, dal lunedì al venerdì, è raggiungibile anche al numero verde 800.29.21.10'];
+            observer.observe(targetNodeGeneral, config);
 
-		//embedded_svc.settings.loadingText = 'Il contact center dalle 09:00 alle 13:00, dal lunedì al venerdì, è raggiungibile anche al numero verde 800.29.21.10'; //(Defaults to Loading)
-		//embedded_svc.settings.storageDomain = 'yourdomain.com'; //(Sets the domain for your deployment so that visitors can navigate subdomains during a chat session)
+            embedded_svc.settings.displayHelpButton = true; //Or false for disabling
+            embedded_svc.settings.language = 'it'; //For example, enter 'en' or 'en-US'
 
-		// Settings for Chat
-		//embedded_svc.settings.directToButtonRouting = function(prechatFormData) {
-			// Dynamically changes the button ID based on what the visitor enters in the pre-chat form.
-			// Returns a valid button ID.
-		//};
-		//embedded_svc.settings.prepopulatedPrechatFields = {}; //Sets the auto-population of pre-chat form fields
-		//embedded_svc.settings.fallbackRouting = []; //An array of button IDs, user IDs, or userId_buttonId
-		//embedded_svc.settings.offlineSupportMinimizedText = '...'; //(Defaults to Contact Us)
+            embedded_svc.settings.defaultMinimizedText = 'Assistente Virtuale'; //(Defaults to Chat with an Expert)
+            embedded_svc.settings.disabledMinimizedText = 'Offline'; //(Defaults to Agent Offline)
+            embedded_svc.settings.widgetHeight = '600px';
 
-		embedded_svc.settings.enabledFeatures = ['LiveAgent'];
-		embedded_svc.settings.entryFeature = 'LiveAgent';
 
-		embedded_svc.init(
-			'https://crm-comunebergamo--uat.sandbox.my.salesforce.com',
-			'https://crm-comunebergamo--uat.sandbox.my.site.com/',
-			gslbBaseURL,
-			'00D1q0000000O9Z',
-			'Comune_di_Bergamo',
-			{
-				baseLiveAgentContentURL: 'https://c.la1-c1cs-cdg.salesforceliveagent.com/content',
-				deploymentId: '5721q0000008Odc',
-				buttonId: '5731q0000008PtA',
-				baseLiveAgentURL: 'https://d.la1-c1cs-cdg.salesforceliveagent.com/chat',
-				eswLiveAgentDevName: 'Chatbot_Comune_Bergamo',
-				isOfflineSupportEnabled: false
-			}
-		);
-	};
+            embedded_svc.settings.loadingText = 'Caricamento...';
 
-	if (!window.embedded_svc) {
-		var s = document.createElement('script');
-		s.setAttribute('src', 'https://crm-comunebergamo--uat.sandbox.my.salesforce.com/embeddedservice/5.0/esw.min.js');
-		s.onload = function() {
-			initESW(null);
-		};
-		document.body.appendChild(s);
-	} else {
-		initESW('https://service.force.com');
-	}
-</script>
+            embedded_svc.settings.enabledFeatures = ['LiveAgent'];
+            embedded_svc.settings.entryFeature = 'LiveAgent';
+
+            /* modificare nel caso di cambio ambiente */
+            embedded_svc.init(
+                'https://crm-comunebergamo.my.salesforce.com',
+                'https://crm-comunebergamo.my.site.com/',
+                gslbBaseURL,
+                '00D7Q000006m88G',
+                'Comune_di_Bergamo',
+                {
+                    baseLiveAgentContentURL: 'https://c.la2-c1-cdg.salesforceliveagent.com/content',
+                    deploymentId: '5727Q000000glY2',
+                    buttonId: '5737Q000000gmJc',
+                    baseLiveAgentURL: 'https://d.la2-c1-cdg.salesforceliveagent.com/chat',
+                    eswLiveAgentDevName: 'Comune_di_Bergamo',
+                    isOfflineSupportEnabled: false
+                }
+            );
+            /*****************************************/
+
+            embedded_svc.addEventHandler("onHelpButtonClick", function (data) {
+                var chatButtonClasses = document.getElementsByClassName("embeddedServiceIcon");
+                if (chatButtonClasses.length > 0) {
+                    //var chatButton = chatButtonClasses[0];
+                    //chatButton.classList.add("load-animation");
+                    var helpButtonEn = document.getElementsByClassName('helpButtonEnabled');
+                    helpButtonEn[0].setAttribute('aria-label', "Apertura della finestra di dialogo in corso.");
+                    helpButtonEn[0].setAttribute('aria-live', "assertive");
+                    helpButtonEn[0].setAttribute('aria-atomic', "true");
+                }
+
+                // accessibilità ingrandimento testo
+                var intervalPreChat = window.setInterval(function () {
+                    var preChat = document.getElementsByClassName('slds-rich-text-editor__output');
+                    if (preChat.length > 0) {
+                        for (var i = 0; i < preChat.length; i++) {
+                            var pElements = preChat[i].getElementsByTagName('p');
+                            if (pElements.length > 0) {
+                                for (var j = 0; j < pElements.length; j++) {
+                                    var iElements = pElements[j].getElementsByTagName('i');
+                                    if (iElements.length > 0) {
+                                        for (var k = 0; k < iElements.length; k++) {
+                                            if (iElements[k].innerHTML === 'Privacy Policy') {
+                                                iElements[k].setAttribute('style', "font-size: 1.375rem");
+                                                iElements[k].innerHTML = "<strong>" + iElements[k].innerHTML + "</strong>";
+                                            } else {
+                                                iElements[k].setAttribute('style', "font-size: 1rem");
+                                            }
+                                        }
+                                    }
+                                }
+                                clearInterval(intervalPreChat);
+                            }
+                        }
+                    }
+                }, 10);
+            });
+
+            embedded_svc.addEventHandler("afterMinimize", function (data) {
+                var modalClasses = document.getElementsByClassName("modalContainer");
+                if (modalClasses.length > 0) {
+                    var modal = modalClasses[0];
+                    modal.classList.remove("firstSidebarMaximized");
+                }
+                /*gestione minimized component standard */
+                var minimizedButton = document.getElementsByClassName("embeddedServiceSidebarMinimizedDefaultUI");
+                if (minimizedButton.length > 0) {
+                    minimizedButton[0].setAttribute("aria-label", "Riprendi la conversazione con l'Assistente Virtuale.");
+                    minimizedButton[0].setAttribute("title", "Assistente Virtuale");
+                }
+            });
+
+
+            embedded_svc.addEventHandler("afterDestroy", function (data) {
+                var helpButtonEn = document.getElementsByClassName('helpButtonEnabled');
+                helpButtonEn[0].setAttribute('title', "Assistente Virtuale");
+                helpButtonEn[0].setAttribute('aria-label', "Assistente virtuale premi invio per conoscere la privacy policy e iniziare la conversazione.");
+                helpButtonEn[0].setAttribute('aria-live', "none");
+                helpButtonEn[0].removeAttribute('aria-atomic');
+                observer.observe(targetNodeGeneral, config);
+                var helpButtonClasses = document.getElementsByClassName("embeddedServiceHelpButton");
+                if (helpButtonClasses.length > 0) {
+                    var helpButton = helpButtonClasses[0];
+                    if (helpButton.classList.contains("sidebarMaximized")) {
+                        helpButton.classList.remove("sidebarMaximized");
+                    }
+                }
+                var modalClasses = document.getElementsByClassName("modalContainer");
+                if (modalClasses.length > 0) {
+                    var modal = modalClasses[0];
+                    modal.classList.remove("firstSidebarMaximized");
+                }
+
+            });
+
+            embedded_svc.addEventHandler("onAgentMessage", function (data) {
+                accessibilityOnNewMsg();
+            });
+
+            embedded_svc.addEventHandler("onAgentRichMessage", function (data) {
+                accessibilityOnNewMsg();
+            });
+
+            embedded_svc.addEventHandler("onChasitorMessage", function (data) {
+                var featureBody = document.getElementsByClassName("featureBody")[0];
+                featureBody.setAttribute("role", "");
+            });
+        };
+
+        if (!window.embedded_svc) {
+            var s = document.createElement('script');
+            /* modificare nel caso di cambio ambiente */
+            s.setAttribute('src', 'https://crm-comunebergamo.my.salesforce.com/embeddedservice/5.0/esw.min.js');
+            /*****************************************/
+            s.onload = function () {
+                initESW(null);
+            };
+            document.body.appendChild(s);
+        } else {
+            initESW('https://service.force.com');
+        }
+
+        var intervalTitle = window.setInterval(function () {
+            var helpButton = document.getElementsByClassName('uiButton helpButtonEnabled');
+            if (helpButton[0]) {
+                var h2 = document.createElement('h2');
+                let parentDiv = helpButton[0].parentNode;
+                h2.innerHTML = "Assistente virtuale chatbot";
+                h2.classList.add("sr-only");
+                parentDiv.insertBefore(h2, helpButton[0]);
+                clearInterval(intervalTitle);
+            }
+        }, 10);
+
+    </script>
+    <!-- END PROD Comune di Bergamo - Accessible version -->
+
 </body>
 
 </html>
